@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+@font-face {
+  font-family: 'quicksand';
+  src: url(./assets/Quicksand-VariableFont_wght.ttf) format('truetype');
+}
+
+$font-42: 42px;
+$font-36: 36px;
+
+* {
+  font-family: 'quicksand';
+  user-select: none;
+}
+
+
+
+body {
+  background-color: #fffcee;
+
+
+}
+

@@ -1,0 +1,23 @@
+<div class="main-card-wrapper" (click)="updateChosenRecipe(mainRecipe)">
+
+    <div class="left-side-wrapper">
+      <div class="rounded-circle">
+        <img [src]="mainRecipe.image">
+      </div>
+      <i *ngIf="mainRecipe.favorite" id="red" class="bi bi-heart-fill fa-4x"></i>
+      <i *ngIf="!mainRecipe.favorite" id="gray" class="bi bi-heart-fill fa-4x"></i>
+    </div>
+
+
+    <div class="right-side-wrapper">
+      <div class="recommended">Recommended</div>
+      <div class="recommended-recipe">
+        {{mainRecipe.name}}
+      </div>
+
+      <li *ngFor="let tag of mainRecipe.tags" class="tags-wrapper">
+        <div class="tag">{{tag}}</div>
+      </li>
+
+    </div>
+  </div>

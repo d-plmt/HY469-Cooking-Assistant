@@ -1,0 +1,89 @@
+<div class="summary-wrapper">
+
+  <div class="top-wrapper">
+    <div class="rounded-circle">
+      <img [src]="recipe!.image">
+      <div class="rating">
+      </div>
+    </div>
+    <div class="top-right">
+      <div class="available-ingredients" *ngIf="recipe!.allIngredientsAvailable">All ingredients available</div>
+      <div class="available-ingredients" *ngIf="!recipe!.allIngredientsAvailable" style="color: red">Some ingredients missing</div>
+      <div class="name">{{recipe!.name}}</div>
+      <div class="difficulty-wrapper">
+        <div class="difficulty">Difficulty: </div>
+        <div class="diff"> {{recipe!.difficulty}}/5</div>
+      </div>
+
+      <div *ngIf="!recipe!.favorite" class="favorites">
+        <i class="bi bi-heart fa-2x"></i>
+          <label>&nbsp;Add to Favorites</label>
+      </div>
+      <div *ngIf="recipe!.favorite" class="favorites">
+        <i class="bi bi-heart-fill fa-2x"></i>
+          <label>&nbsp;Favorite Recipe</label>
+      </div>
+      <div class="tags-wrapper">
+        <li *ngFor="let tag of recipe!.tags" class="tag">
+          {{tag}}
+        </li>
+      </div>
+    </div>
+  </div>
+
+  <div class="ingredients-wrapper">
+    <div class="fridge-wrapper"><div class="title">Fridge Ingredients</div>
+      <div class="ingredients-check-div" *ngFor="let ingredient of fridgeIngredients">
+        <div *ngIf="showAlts && ingredient?.alternative!==undefined; else noAlts">
+          <input class="form-check-input ing-check" type="checkbox" value="{{ingredient.alternative}}" id="{{ingredient.alternative}}-check">
+          <label class="form-check-label ingredient-lbl" for="{{ingredient.alternative}}-check">
+            {{ingredient.alternative}}
+          </label>
+        </div>
+        <ng-template #noAlts>
+          <input class="form-check-input ing-check" type="checkbox" value="{{ingredient.ingredient}}" id="{{ingredient.ingredient}}-check">
+          <label class="form-check-label ingredient-lbl" for="{{ingredient.ingredient}}-check">
+            {{ingredient.ingredient}}
+          </label>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="cupboard-wrapper"><div class="title">Cupboard Ingredients</div>
+      <div class="ingredients-check-div" *ngFor="let ingredient of cupboardIngredients">
+
+        <div *ngIf="showAlts && ingredient?.alternative!==undefined; else noAlts">
+          <input class="form-check-input ing-check" type="checkbox" value="{{ingredient.alternative}}" id="{{ingredient.alternative}}-check">
+          <label class="form-check-label ingredient-lbl" for="{{ingredient.alternative}}-check">
+            {{ingredient.alternative}}
+          </label>
+        </div>
+        <ng-template #noAlts>
+          <input class="form-check-input ing-check" type="checkbox" value="{{ingredient.ingredient}}" id="{{ingredient.ingredient}}-check">
+          <label class="form-check-label ingredient-lbl" for="{{ingredient.ingredient}}-check">
+            {{ingredient.ingredient}}
+          </label>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="abyss-wrapper"><div class="title" *ngIf="abyssIngredients.length > 0">Missing Ingredients</div>
+      <div class="ingredients-check-div" *ngFor="let ingredient of abyssIngredients">
+
+        <div *ngIf="showAlts && ingredient?.alternative!==undefined; else noAlts">
+          <input class="form-check-input ing-check" type="checkbox" value="{{ingredient.alternative}}" id="{{ingredient.alternative}}-check">
+          <label class="form-check-label ingredient-lbl" for="{{ingredient.alternative}}-check">
+            {{ingredient.alternative}}
+          </label>
+        </div>
+        <ng-template #noAlts>
+          <input class="form-check-input ing-check" type="checkbox" value="{{ingredient.ingredient}}" id="{{ingredient.ingredient}}-check">
+          <label class="form-check-label ingredient-lbl" for="{{ingredient.ingredient}}-check">
+            {{ingredient.ingredient}}
+          </label>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+</div>

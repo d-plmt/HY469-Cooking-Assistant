@@ -1,0 +1,23 @@
+
+<div *ngIf="chosenRecipe !== undefined else homepage" class="summary-wrapper">
+    <app-recipe-summary [recipe]="chosenRecipe" (reset)="reset()" (start)="startCooking($event)">
+
+    </app-recipe-summary>
+</div>
+
+<ng-template #homepage>
+  <div class="homepage flex-wrapper">
+
+    <div class="app-left-panel-wrapper">
+      <app-left-panel (tagsEvent)="updateTags($event)" (occasionEvent)="updateOccasion($event)" (favoritesEvent)="updateFavorites($event)"></app-left-panel>
+
+    </div>
+    <div class="app-main-panel-wrapper">
+      <app-main-panel [recipes]="recipes" [tagsArray]="tagsArray" [occasionArray]="occasionArray" [favorites]="favorites" (chosenRecipe)="recipeSummary($event)" >
+
+      </app-main-panel>
+    </div>
+</div>
+</ng-template>
+
+

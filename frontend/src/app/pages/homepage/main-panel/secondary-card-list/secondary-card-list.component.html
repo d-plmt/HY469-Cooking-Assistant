@@ -1,0 +1,23 @@
+<div class="secondary-card-list-title">
+    You can also make
+  </div>
+
+  <div class="secondary-card-list-wrapper">
+  <!--
+    <div class="arrow">
+      <i class="bi bi-caret-left fa-4x"></i>
+    </div> -->
+
+    <ul>
+      <drag-scroll [scrollbar-hidden]="true" class="scrolling-wrapper-flexbox" >
+        <li drag-scroll-item *ngFor="let recipe of cardListRecipes" (click)="updateChosenRecipe(recipe)">
+          <app-secondary-card [recipe]="recipe"></app-secondary-card>
+        </li>
+      </drag-scroll>
+
+    </ul>
+  <!--
+    <div class="arrow">
+      <i class="bi bi-caret-right fa-4x"></i>
+    </div> -->
+  </div>

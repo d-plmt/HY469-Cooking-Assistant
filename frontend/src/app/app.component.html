@@ -1,0 +1,19 @@
+<app-top-bar (home)="loadModule('homepage')"></app-top-bar>
+<app-homepage #homepage *ngIf="this.currentModule === 'homepage'" (preppingRecipe)="loadModule('prepping', $event)">
+
+</app-homepage>
+
+<app-prepping #prepping *ngIf="this.currentModule === 'prepping' && this.recipe !== undefined" (cook)="loadModule('cooking')" (home)="loadModule('homepage')" [mainRecipe]="this.recipe">
+
+</app-prepping>
+
+<app-cooking #cooking *ngIf="this.currentModule === 'cooking' && this.recipe !== undefined" (home)="loadModule('homepage')" [mainRecipe]="this.recipe">
+
+</app-cooking>
+<!--
+<app-backsplash *ngIf="this.currentModule === 'backsplash'">
+
+</app-backsplash> -->
+
+
+<router-outlet></router-outlet>

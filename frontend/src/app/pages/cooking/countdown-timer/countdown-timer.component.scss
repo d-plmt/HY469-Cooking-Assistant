@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.time {
+  width: 28%;
+  font-size: 2vh;
+  padding-right: 5%;
+}
+
+.btn-wrapper {
+  width: 45%;
+  border-radius: 20px;
+  background-color: #FFEB97;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button {
+  display: inline;
+  color: black;
+}

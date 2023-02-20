@@ -1,0 +1,24 @@
+:host {
+    height: 100vh;
+    width: 100vw;
+    display: block;
+    overflow: hidden;
+  }
+
+  .flex-wrapper {
+  display:inline-flex;
+  }
+
+  .app-left-panel-wrapper {
+  order: 0;
+  align-self: flex-start;
+  height: 100vh;
+  width: 16vw;
+  }
+
+  .app-main-panel-wrapper {
+  align-self: flex-end;
+  height: 92.6vh;
+  width: 84vw;
+  order: 1;
+  }

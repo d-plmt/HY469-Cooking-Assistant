@@ -1,0 +1,43 @@
+:host {
+    margin: 9.25vh 8vw 0 3.7vw;
+    height: 38vh;
+    display: block;
+  }
+
+  .secondary-card-list-title {
+    margin-left: 3.3vw;
+    font-size: 1.8vw;
+    font-weight: 500;
+  }
+
+  .secondary-card-list-wrapper {
+     height: 100%;
+      margin-left: 2.8vw;
+  }
+
+  .bi {
+    color: #6C6C6C;
+  }
+
+  ul {
+    height: 100%;
+    padding: 0;
+  }
+
+  li {
+    width: 10vw;
+    margin: 0.8vh 3vw 0 0.5vw;
+    vertical-align: top;
+    word-wrap: break-word;
+    white-space: normal;
+    // height: 24.6vh;
+  }
+
+  drag-scroll {
+    cursor:grab;
+    height: 100%;
+  }
+
+  .drag-scroll-content {
+    margin-left: 0.5vw;
+  }

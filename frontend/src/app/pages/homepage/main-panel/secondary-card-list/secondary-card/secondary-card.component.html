@@ -1,0 +1,17 @@
+<div class="secondary-card-wrapper">
+
+    <div class="photo-wrapper">
+      <div class="rounded-circle">
+        <img [src]="recipe.image">
+      </div>
+
+      <!-- <i class="bi bi-heart fa-2x"></i> -->
+      <i *ngIf="recipe.favorite" id="red" class="bi bi-heart-fill fa-3x"></i>
+      <i *ngIf="!recipe.favorite" id="gray" class="bi bi-heart-fill fa-3x"></i>
+    </div>
+
+
+    <div class="secondary-card-title">
+      <span [ngStyle]="{'font-size': fontSize}">{{recipe.name}}</span>
+    </div>
+    </div>

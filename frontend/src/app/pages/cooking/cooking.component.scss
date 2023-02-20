@@ -1,0 +1,172 @@
+:host {
+
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.scrollable {
+  overflow-y: auto;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 1px  rgba(0,0,0,0.3);
+  margin-left: 10px;
+  background-color: #fdf6d8;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 6px;
+  background-color: #fffcee;
+}
+
+.scrollable::-webkit-scrollbar-thumb{
+  background-color: #FFD500;
+}
+
+.cooking-wrapper {
+  padding: 7.4vh 1.3vw 2.7vh 1.3vw;
+  height: 100%;
+  width: 26%;
+  border-right: 5px solid #FFD500;
+  box-shadow: 4px 10px 15px #D7D7C5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.timer-wrapper {
+  height: 35vh;
+  width: 100%;
+  display: block;
+  margin-bottom: 4.6vh;
+  scrollbar-width: thin;
+  scrollbar-color: #FFD500 none;
+}
+
+.timer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timer-ngif {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+
+.timer-title {
+  font-size: 2vh;
+}
+
+.timer-delete {
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid #FFD500;
+}
+
+li {
+  height: 8vh;
+  padding: 1vh;
+}
+
+.video-controls-wrapper {
+  height: 18.5vh;
+  width: 100%;
+  display: block;
+  margin-bottom: 4.6vh;
+}
+
+.play-video {
+  height: 100%;
+  width: 100%;
+  border-radius: 4.6vw;
+  box-shadow: 4px 10px 15px #D7D7C5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+
+}
+
+.bi-play-circle {
+  height: 50%;
+  aspect-ratio: 1;
+}
+
+.video-controls {
+  font-size: 3.3vh;
+  font-weight: bold;
+}
+
+.step-controls-wrapper {
+  width: 100%;
+  height: 11%;
+  margin-bottom: 4.6vh;
+  border-radius: 3.8vw;
+  box-shadow: 4px 10px 15px #D7D7C5;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.step {
+  font-size: 3vh;
+  font-weight: bold;
+  width: 45%;
+  height: 65%;
+  border-radius: 4.6vw;
+  outline: none;
+  box-shadow: none;
+}
+
+.step:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.next {
+  background-color: #FFD500;
+}
+
+.prev {
+  background-color: #fffcee;
+}
+
+.mic-controls-wrapper {
+  width: 100%;
+  display: block;
+}
+
+.mic-wrapper {
+  width: 55%;
+}
+
+.listening {
+  font-size: 3vh;
+}
+
+.voice-wrapper {
+  border-radius: 30px;
+}
+
+.bi-mic{
+  padding: 0 6%;
+}
+
+.bi-mic-mute {
+  padding: 0 6%;
+}
+
+.active {
+  background-color: #FFEB97;
+}
+
+li {
+  list-style-type: none;
+}

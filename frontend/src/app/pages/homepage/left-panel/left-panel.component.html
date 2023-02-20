@@ -1,0 +1,31 @@
+<div class="left-panel-wrapper">
+    <div class="occasion-wrapper">
+
+      <div class="title">
+        Occasion
+      </div>
+      <ul class="occasion-list" id="occasion-list">
+        <li *ngFor="let occasion of occasionArray" class="occasion-item">
+          <button type="button" class="btn btn-light left-panel-occ-btn text-left" id={{occasion.name}} (click)="updateOccasionArray($event)">{{occasion.name}}</button>
+        </li>
+      </ul>
+
+      <div class="title">
+        Preferences
+      </div>
+      <ul class="preference-list">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="favorites" (click)="updateFavorites($event)">
+          <label class="form-check-label" for="checkbox" id="flabel">Favorites</label>
+        </div>
+        <li *ngFor="let tag of tagsArray" class="preference-item">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id={{tag.name}} (click)="updateTagsArray($event)">
+            <label class="form-check-label" for="checkbox">
+              {{tag.name}}
+            </label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>

@@ -1,0 +1,36 @@
+<div class="summary-wrapper" *ngIf="recipe.name !== ''">
+
+  <div class="top-wrapper">
+    <div class="rounded-circle">
+      <img [src]="recipe!.image">
+      <div class="rating">
+      </div>
+    </div>
+    <div class="top-right">
+      <div class="available-ingredients" *ngIf="recipe!.allIngredientsAvailable">All ingredients available</div>
+      <div class="available-ingredients" *ngIf="!recipe!.allIngredientsAvailable" style="color: red">Some ingredients are missing</div>
+      <div class="name">{{recipe!.name}}</div>
+      <div class="difficulty-wrapper">
+        <div class="difficulty">Difficulty: </div>
+        <div class="diff"> {{recipe!.difficulty}}/5</div>
+      </div>
+
+      <div class="tags-wrapper">
+        <li *ngFor="let tag of recipe!.tags" class="tag">
+          {{tag}}
+        </li>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-left-wrapper">
+    <div class="progress-wrapper">
+      <app-progress-bar [totalSteps]="totalSteps" [currentStep]="currentStep" ></app-progress-bar>
+    </div>
+    <div class="step-wrapper">
+      <div class="step-title">Step {{currentStep}} of {{totalSteps}}</div>
+      <div class="step">{{recipe.steps[currentStep].step}}</div>
+    </div>
+  </div>
+
+</div>

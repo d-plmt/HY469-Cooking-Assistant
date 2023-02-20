@@ -1,0 +1,92 @@
+.prepping-wrapper {
+  padding: 7.4vh 8.5vw 0;
+  height: 87vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ingredient-panel{
+    width: 100%;
+    height: 50%;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    overflow-wrap:normal;
+}
+
+
+.ingredient-panel > * {
+    list-style-type: none;
+
+}
+
+.bottom-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  background-color: #fffcee;
+  height: 9.2vh;
+  width: 17.5vw;
+  border-radius: 50px;
+  box-shadow: 4px 10px 15px #C0BEB3;
+  border: none;
+
+  font-size: 4.5vh;
+  font-weight: bold;
+}
+
+.proceed {
+  background-color: #FFD500;
+}
+
+.alternatives {
+  font-size: 3.1vh;
+}
+
+.showAlts {
+  background-color: #FFEB97;
+  box-shadow: inset 4px 5px 15px #C0BEB3;
+}
+
+.page-bottom {
+  height: 13vh;
+  padding-left: 1.3vw;
+  padding-bottom: 1vh;
+  display: flex;
+  align-items: end;
+  justify-content: start;
+}
+
+.mic-controls-wrapper {
+  width: 14.3vw;
+  display: block;
+}
+
+.listening {
+  font-size: 3vh;
+}
+
+.voice-wrapper {
+  border-radius: 30px;
+}
+
+.bi-mic{
+  padding: 0 6%;
+}
+
+.bi-mic-mute {
+  padding: 0 6%;
+}
+
+.active {
+  background-color: #FFEB97;
+}
+
+h2 {
+  padding-top: 5vh;
+}

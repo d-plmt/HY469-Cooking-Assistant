@@ -1,0 +1,12 @@
+<button [ngClass]="{checked: checked}" class="ingridient-btn alt" *ngIf="showAlternatives && ingredient?.alternative!==undefined; else noAlts"
+        id="{{ingredient!.alternative}}"(click)="checkIngredient(ingredient?.alternative)">
+  {{ ingredient?.alternative }}
+</button>
+
+<ng-template #noAlts>
+  <button [ngClass]="{checked: checked}" class="ingridient-btn" (click)="checkIngredient(ingredient?.ingredient)" id="{{ingredient!.ingredient}}">
+    {{ ingredient?.ingredient }}
+
+  </button>
+</ng-template>
+

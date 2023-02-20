@@ -1,0 +1,27 @@
+<div class="prepping-wrapper">
+  <h2>Place ingredients</h2>
+  <div class="ingredient-panel">
+          <li *ngFor="let ingredient of mainRecipe.ingredients">
+              <app-ingr-btn [ingredient]="ingredient" [showAlternatives]="showAlts" (click)="placedIngredients = placedIngredients + 1">  </app-ingr-btn>
+          </li>
+  </div>
+  <div class="bottom-wrapper">
+    <button class="btn cancel" (click)="goHome()">Cancel</button>
+    <button [ngClass]="{showAlts: showAlts}" class="btn alternatives" id="alternatives" (click)="alternatives()">Show Alternatives</button>
+    <button style="cursor:pointer" routerLinkActive="active" class="btn proceed" (click)="proceed()">Proceed</button>
+  </div>
+</div>
+
+<div class="page-bottom">
+  <div class="mic-controls-wrapper">
+    <div class="mic-wrapper">
+      <div *ngIf="voiceActive" class="voice-wrapper active" (click)="voice()">
+        <span class="bi bi-mic fa-2x"></span>
+        <span class="listening">Listening...</span>
+      </div>
+      <div *ngIf="!voiceActive" class="voice-wrapper disabled" (click)="voice()">
+        <span  class="bi bi-mic-mute fa-2x"></span>
+      </div>
+    </div>
+  </div>
+</div>

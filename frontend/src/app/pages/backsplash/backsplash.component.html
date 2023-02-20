@@ -1,0 +1,12 @@
+<div *ngIf="this.currentModule === 'homepage'" class="welcome-wrapper">
+  <span class="welcome">Welcome</span>
+  <span class="message">Select a recipe to continue</span>
+</div>
+
+
+<app-prepping-backsplash *ngIf="this.currentModule === 'prepping' && this.recipe !== undefined" [recipe]="this.recipe">
+</app-prepping-backsplash>
+
+<app-cooking-backsplash *ngIf="this.currentModule === 'cooking' && this.recipe !== undefined" [recipe]="this.recipe">
+</app-cooking-backsplash>
+

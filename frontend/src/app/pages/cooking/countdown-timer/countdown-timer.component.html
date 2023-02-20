@@ -1,0 +1,18 @@
+
+<div class="container">
+  <div class="time">{{minutes}} : {{ seconds | number: '2.0' }}</div>
+  <div *ngIf="counting === 'not started'" class="btn-wrapper">
+    <button (click)="startTimer()" class="btn start-btn">Start Timer</button>
+  </div>
+  <div *ngIf="counting === 'counting'" class="btn-wrapper">
+    <button (click)="pauseTimer()" class="btn pause-btn"><i class="bi bi-pause"></i></button>
+    <button (click)="resetTimer()" class="btn reset-btn"><i class="bi bi-arrow-counterclockwise"></i></button>
+  </div>
+  <div *ngIf="counting === 'paused'" class="btn-wrapper">
+    <button (click)="startTimer()" class="btn play-btn"><i class="bi bi-play"></i></button>
+    <button (click)="resetTimer()" class="btn reset-btn"><i class="bi bi-arrow-counterclockwise"></i></button>
+  </div>
+  <div *ngIf="counting === 'end'" class="end">
+    Timer has finished
+  </div>
+</div>

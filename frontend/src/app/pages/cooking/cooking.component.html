@@ -1,0 +1,46 @@
+<!-- <app-timer></app-timer> -->
+
+<div class="cooking-wrapper">
+
+  <ul class="timer-wrapper scrollable">
+    <li *ngFor="let timer of timers" id="timer{{timer.step}}">
+      <div class="timer-ngif" *ngIf="timer.show">
+        <div class="timer-top">
+          <span class="timer-title">Step {{timer.step}}</span>
+          <button class="timer-delete" (click)="destroyTimer(timer.step)"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <app-countdown-timer #timercomp{{timer.step}} [timer]="timer.amount" [step]="timer.step" (finishedEvent)="destroyTimer($event)">
+        </app-countdown-timer>
+      </div>
+    </li>
+  </ul>
+
+  <div class="video-controls-wrapper">
+    <button *ngIf="mainRecipe.steps[currentStep].video !== undefined" class="btn play-video border-0" (click)="playVideo(mainRecipe.steps[currentStep].video)">
+      <div class="bi bi-play-circle fa-4x"></div>
+      <span class="video-controls">Play Recipe Video</span>
+    </button>
+  </div>
+
+  <div class="step-controls-wrapper">
+    <button *ngIf="currentStep > 0 else prevDisabled"class="btn prev step border-0" (click)="prevStep()">Prev. Step</button>
+    <ng-template #prevDisabled><button class="btn prev step disabled border-0" disabled>Prev. Step</button></ng-template>
+    <button *ngIf="currentStep < totalSteps else nextDisabled"class="btn next step border-0" (click)="nextStep()">Next Step</button>
+    <ng-template #nextDisabled><button class="btn disabled next step border-0" disabled>Next Step</button></ng-template>
+  </div>
+
+  <div class="mic-controls-wrapper">
+    <div class="mic-wrapper">
+      <div *ngIf="voiceActive" class="voice-wrapper active">
+        <span class="bi bi-mic fa-2x" (click)="voice()"></span>
+        <span class="listening">Listening...</span>
+      </div>
+      <div *ngIf="!voiceActive" class="voice-wrapper disabled">
+        <span  class="bi bi-mic-mute fa-2x" (click)="voice()"></span>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

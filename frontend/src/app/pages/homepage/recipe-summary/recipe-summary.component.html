@@ -1,0 +1,150 @@
+<div class="summary-wrapper">
+
+  <div class="left-side-wrapper">
+    <div class="back-btn" (click)="back()"><img class="arrow" src="../../../../assets/previous.png"></div>
+
+  </div>
+    <div class="middle-wrapper">
+
+      <div class="top-wrapper">
+        <div class="rounded-circle">
+          <img [src]="recipe.image">
+          <div class="rating">
+            <ngx-star-rating [(ngModel)]="recipe.rating" [disabled]="false" ></ngx-star-rating>
+          </div>
+        </div>
+        <div class="top-right">
+          <div class="available-ingredients" *ngIf="recipe.allIngredientsAvailable">All ingredients available</div>
+          <div class="available-ingredients" *ngIf="!recipe.allIngredientsAvailable" style="color: red">Some ingredients are missing</div>
+          <div class="name">{{recipe.name}}</div>
+          <div class="difficulty-wrapper">
+            <div class="difficulty">Difficulty: </div>
+            <div class="diff"> {{recipe.difficulty}}/5</div>
+          </div>
+
+          <div *ngIf="!recipe.favorite" (click)="AddtoF()" class="favorites" >
+            <i class="bi bi-heart-fill fa-2x" id="h"></i>
+              <label id="add">&nbsp;Add to Favorites</label>
+          </div>
+          <div *ngIf="recipe.favorite" (click)="RemfromF()" class="favorites">
+            <i class="bi bi-heart-fill fa-2x" id="hf"></i>
+              <label id="remove">&nbsp;Favorite Recipe</label>
+          </div>
+          <div class="tags-wrapper">
+            <li *ngFor="let tag of recipe.tags" class="tag">
+              {{tag}}
+            </li>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="bottom-wrapper">
+        <div class="description scrollable">
+          {{recipe.description}}
+        </div>
+        <span class="ingredients-title">Ingredients</span>
+        <ul class="ingredients scrollable">
+          <li *ngFor="let ingredient of recipe.ingredients" class="ingredient-wrapper">
+            <span class="missing-ingr ingr" *ngIf="!ingredient.ingrAvailable && !ingredient.altAvailable" style="color: red">
+              <span class="amount">{{ingredient.amount}}</span>
+              <span class="ingredient">{{ingredient.ingredient}}</span>
+            </span>
+            <span class="available-alt ingr" *ngIf="!ingredient.ingrAvailable && ingredient.altAvailable" style="color: orange">
+              <span class="amount">{{ingredient.amount}}</span>
+              <span class="ingredient">{{ingredient.ingredient}}</span>
+            </span>
+            <span class="available-ingr ingr" *ngIf="ingredient.ingrAvailable">
+              <span class="amount">{{ingredient.amount}}</span>
+              <span class="ingredient">{{ingredient.ingredient}}</span>
+            </span>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="right-side-wrapper">
+      <div class="right-card">
+        <div class="title">Nutritional Value</div>
+        <div class="hr-wrapper">
+          <hr>
+        </div>
+        <ul class="nutritional-values">
+
+
+            <li class="nutrition-wrapper">
+              <span class="nutrition-type">Serving</span>
+              <span class="nutrition">{{recipe.nutrition.serving}}</span>
+            </li>
+            <li class="nutrition-wrapper">
+              <span class="nutrition-type">Calories</span>
+              <span class="nutrition">{{recipe.nutrition.calories}}</span>
+            </li>
+            <li class="nutrition-wrapper">
+              <span class="nutrition-type">Protein</span>
+              <span class="nutrition">{{recipe.nutrition.protein}}g</span>
+            </li>
+            <li class="nutrition-wrapper">
+              <span class="nutrition-type">Carbs</span>
+              <span class="nutrition">{{recipe.nutrition.carbs}}g</span>
+            </li>
+            <li class="nutrition-wrapper">
+              <span class="nutrition-type">Sugar</span>
+              <span class="nutrition">{{recipe.nutrition.sugar}}g</span>
+            </li>
+            <li class="nutrition-wrapper">
+              <span class="nutrition-type">Fiber</span>
+              <span class="nutrition">{{recipe.nutrition.fiber}}g</span>
+            </li>
+            <li class="nutrition-wrapper">
+              <span class="nutrition-type">Fat</span>
+              <span class="nutrition">{{recipe.nutrition.fat}}g</span>
+            </li>
+            <li class="nutrition-wrapper">
+              <span class="nutrition-type">Saturated Fat</span>
+              <span class="nutrition">{{recipe.nutrition.saturated}}g</span>
+            </li>
+            <li class="nutrition-wrapper">
+              <span class="nutrition-type">Trans Fat</span>
+              <span class="nutrition">{{recipe.nutrition.trans}}g</span>
+            </li>
+            <li class="nutrition-wrapper">
+              <span class="nutrition-type">Cholesterol</span>
+              <span class="nutrition">{{recipe.nutrition.cholesterol}}mg</span>
+            </li>
+        </ul>
+        <div class="title notestitle">Notes</div>
+        <div class="hr-wrapper">
+          <hr>
+        </div>
+        <ul class="notes">
+          <li *ngFor="let note of recipe.tips" class="note-wrapper">
+            <div class="bold">{{note.title}}:&nbsp;</div>{{note.content}}
+          </li>
+        </ul>
+
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+
+<div class="page-bottom">
+  <div class="mic-controls-wrapper">
+    <div class="mic-wrapper">
+      <div *ngIf="voiceActive" class="voice-wrapper active" (click)="voice()">
+        <span class="bi bi-mic fa-2x"></span>
+        <span class="listening">Listening...</span>
+      </div>
+      <div *ngIf="!voiceActive" class="voice-wrapper disabled" (click)="voice()">
+        <span  class="bi bi-mic-mute fa-2x"></span>
+      </div>
+    </div>
+  </div>
+  <div class="btn-wrapper">
+    <button class="btn" style="cursor:pointer" (click)="saveRecipe()" >Start Cooking</button>
+  </div>
+</div>

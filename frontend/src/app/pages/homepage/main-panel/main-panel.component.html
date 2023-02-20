@@ -1,0 +1,4 @@
+<div class="main-panel-wrapper">
+    <app-main-card [mainRecipe]="mainRecipe" (recipeEvent)="updateChosenRecipe($event)"></app-main-card>
+    <app-secondary-card-list [cardListRecipes]="cardListRecipes" (recipeEvent)="updateChosenRecipe($event)"></app-secondary-card-list>
+  </div>
